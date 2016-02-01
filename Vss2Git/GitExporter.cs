@@ -84,6 +84,7 @@ namespace Hpdi.Vss2Git
                 {
                     Directory.CreateDirectory(repoPath);
                 }
+                repoPath = new DirectoryInfo(repoPath).FullName;
 
                 var git = new GitWrapper(repoPath, logger);
                 git.CommitEncoding = commitEncoding;
@@ -490,13 +491,13 @@ namespace Hpdi.Vss2Git
                 {
                     if (isAddAction)
                     {
-                        if (revisionAnalyzer.IsDestroyed(target.PhysicalName) &&
+                        /*if (revisionAnalyzer.IsDestroyed(target.PhysicalName) &&
                             !database.ItemExists(target.PhysicalName))
                         {
                             logger.WriteLine("NOTE: Skipping destroyed file: {0}", targetPath);
                             itemInfo.Destroyed = true;
                         }
-                        else if (target.IsProject)
+                        else*/ if (target.IsProject)
                         {
                             Directory.CreateDirectory(targetPath);
                             writeProject = true;

@@ -162,7 +162,7 @@ namespace Hpdi.VssLogicalLib
                             archive.ArchivePath);
                     }
                 default:
-                    throw new ArgumentException("Unknown revision action: " + revision.Action);
+                    throw new RecordException("Unknown revision action: " + revision.Action);
             }
         }
     }
