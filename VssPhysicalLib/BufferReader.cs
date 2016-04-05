@@ -181,7 +181,7 @@ namespace Hpdi.VssPhysicalLib
         {
             if (offset + bytes > limit)
             {
-                throw new EndOfBufferException(string.Format(
+                throw new RecordException(string.Format(
                     "Attempted read of {0} bytes with only {1} bytes remaining in buffer",
                     bytes, Remaining));
             }
